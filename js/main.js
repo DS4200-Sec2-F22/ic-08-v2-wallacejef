@@ -15,20 +15,25 @@ function build_interactive_plot() {
 
   d3.csv("data/data.csv").then((data) => {
 
-    const MAX_X = d3.max(data, (d) => { return parseInt(d.x); });
+    const MAX_Y = d3.max(data, (d) => { return parseInt(d.x); });
     
     const X_SCALE = d3.scaleLinear() 
-                      .domain([0, (MAX_X + 10000)]) 
+                      .domain([0, 5]) 
                       .range([0, VIS_WIDTH]); 
 
-    FRAME.selectAll("points")  
+    const Y_SCALE = d3.scaleLinear() 
+                      .domain([0, (MAX_Y + 10000)]) 
+                      .range([0, VIS_WIDTH]); 
+
+    FRAME.selectAll(".bar")  
         .data(data)
         .enter()       
-        .append("circle")  
+        .append("rect")  
           .attr("cx", (d) => { return (X_SCALE(d.x) + MARGINS.left); }) 
-          .attr("cy", MARGINS.top) 
+          .attr("cy", FRAME_HEIGHT / 2) 
           .attr("r", 20)
-          .attr("class", "point");
+          .attr("height", (d) => { return Y_SCALE(d.x)})
+          .attr("class", "bar");
 
 
     FRAME.append("g") 
