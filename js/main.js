@@ -15,14 +15,14 @@ function build_interactive_plot() {
     const MAX_X = d3.max(data, (d) => { return parseInt(d.x); });
     
     const X_SCALE = d3.scaleLinear() 
-                      .domain([0, (MAX_X3 + 10000)]) 
+                      .domain([0, (MAX_X + 10000)]) 
                       .range([0, VIS_WIDTH]); 
 
     FRAME.selectAll("points")  
         .data(data)
         .enter()       
         .append("circle")  
-          .attr("cx", (d) => { return (X_SCALE3(d.x) + MARGINS.left); }) 
+          .attr("cx", (d) => { return (X_SCALE(d.x) + MARGINS.left); }) 
           .attr("cy", MARGINS.top) 
           .attr("r", 20)
           .attr("class", "point");
@@ -31,7 +31,7 @@ function build_interactive_plot() {
     FRAME.append("g") 
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
-          .call(d3.axisBottom(X_SCALE3).ticks(4)) 
+          .call(d3.axisBottom(X_SCALE).ticks(4)) 
             .attr("font-size", '20px'); 
 
 
