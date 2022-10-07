@@ -25,7 +25,7 @@ function build_interactive_plot() {
                       .domain([0, (MAX_Y)]) 
                       .range([0, VIS_HEIGHT]); 
 
-    FRAME.selectAll(".bar")  
+    FRAME.selectAll("bar")  
         .data(data)
         .enter()       
         .append("rect")  
