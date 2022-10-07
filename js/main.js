@@ -15,10 +15,10 @@ function build_interactive_plot() {
 
   d3.csv("data/data.csv").then((data) => {
 
-    const MAX_Y = d3.max(data, (d) => { return parseInt(d.value); });
+    const MAX_Y = d3.max(data, (d) => { return parseInt(d.Value); });
     
     const X_SCALE = d3.scaleBand() 
-                      .domain(data.map(function(d) { return d.category; })) 
+                      .domain(data.map(function(d) {return d.Category;})) 
                       .range([0, VIS_WIDTH])
                       .padding(0.2);
 
@@ -31,10 +31,10 @@ function build_interactive_plot() {
         .data(data)
         .enter()       
         .append("rect")  
-          .attr("cx", (d) => { return (X_SCALE(d.category)); })  //+ MARGINS.LEFT
+          .attr("cx", (d) => { return (X_SCALE(d.Category) + MARGINS.left);})
           .attr("cy", VIS_HEIGHT/2)
           .attr("width", 10)
-          .attr("height", (d) => { return Y_SCALE(d.value)})
+          .attr("height", (d) => { return Y_SCALE(d.Value)})
           .attr("class", "bar");
 
     FRAME.append("g") 
