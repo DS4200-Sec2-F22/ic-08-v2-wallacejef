@@ -31,8 +31,8 @@ function build_interactive_plot() {
         .data(data)
         .enter()       
         .append("rect")  
-          .attr("cx", (d) => { return (X_SCALE(d.Category) + MARGINS.left);})
-          .attr("cy", VIS_HEIGHT/2)
+          .attr("x", (d) => { return (X_SCALE(d.Category) + MARGINS.left);})
+          .attr("y", VIS_HEIGHT/2)
           .attr("width", X_SCALE.bandwidth())
           .attr("height", (d) => { return Y_SCALE(d.Value)})
           .attr("class", "bar");
