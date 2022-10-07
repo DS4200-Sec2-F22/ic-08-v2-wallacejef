@@ -18,7 +18,7 @@ function build_interactive_plot() {
     const MAX_Y = d3.max(data, (d) => { return parseInt(d.Value); });
     
     const X_SCALE = d3.scaleBand() 
-                      .domain(data.map(function(d) {return d.Category;})) 
+                      .domain(data.map(function(d) {return d.Category; })) 
                       .range([0, VIS_WIDTH])
                       .padding(0.2);
 
