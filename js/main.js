@@ -1,5 +1,5 @@
-const FRAME_HEIGHT = 1000;
-const FRAME_WIDTH = 1000; 
+const FRAME_HEIGHT = 500;
+const FRAME_WIDTH = 500; 
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
 
 const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.left - MARGINS.right;
