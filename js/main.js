@@ -2,6 +2,9 @@ const FRAME_HEIGHT = 200;
 const FRAME_WIDTH = 500; 
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
 
+const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.left - MARGINS.right;
+const VIS_WIDTH = FRAME_WIDTH - MARGINS.top - MARGINS.bottom; 
+
 const FRAME = d3.select("#vis1")
                   .append("svg")
                     .attr("height", FRAME_HEIGHT)
