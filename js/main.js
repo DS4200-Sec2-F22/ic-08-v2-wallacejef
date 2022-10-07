@@ -1,5 +1,5 @@
-const FRAME_HEIGHT = 500;
-const FRAME_WIDTH = 500; 
+const FRAME_HEIGHT = 1000;
+const FRAME_WIDTH = 1000; 
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
 
 const VIS_HEIGHT = FRAME_HEIGHT - MARGINS.left - MARGINS.right;
@@ -15,11 +15,13 @@ function build_interactive_plot() {
 
   d3.csv("data/data.csv").then((data) => {
 
-    const MAX_Y = d3.max(data, (d) => { return parseInt(d.x); });
+    const MAX_Y = d3.max(data, (d) => { return parseInt(d.value); });
     
-    const X_SCALE = d3.scaleLinear() 
+    const X_SCALE = d3.scaleBand() 
                       .domain([0, 5]) 
-                      .range([0, VIS_WIDTH]); 
+                      .range([0, VIS_WIDTH]);
+                      .padding(0.2);
+
 
     const Y_SCALE = d3.scaleLinear() 
                       .domain([0, (MAX_Y)]) 
@@ -29,10 +31,10 @@ function build_interactive_plot() {
         .data(data)
         .enter()       
         .append("rect")  
-          .attr("cx", (d) => { return (X_SCALE(d.x)); })  //+ MARGINS.LEFT
+          .attr("cx", (d) => { return (X_SCALE(d.Category)); })  //+ MARGINS.LEFT
           .attr("cy", VIS_HEIGHT/2)
           .attr("width", 10)
-          .attr("height", (d) => { return Y_SCALE(d.x)})
+          .attr("height", (d) => { return Y_SCALE(d.value)})
           .attr("class", "bar");
 
     FRAME.append("g") 
