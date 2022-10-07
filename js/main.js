@@ -18,7 +18,7 @@ function build_interactive_plot() {
     const MAX_Y = d3.max(data, (d) => { return parseInt(d.value); });
     
     const X_SCALE = d3.scaleBand() 
-                      .domain([0, 5]) 
+                      .domain(data.map(function(d) { return d.category; })) 
                       .range([0, VIS_WIDTH]);
                       .padding(0.2);
 
@@ -31,7 +31,7 @@ function build_interactive_plot() {
         .data(data)
         .enter()       
         .append("rect")  
-          .attr("cx", (d) => { return (X_SCALE(d.Category)); })  //+ MARGINS.LEFT
+          .attr("cx", (d) => { return (X_SCALE(d.category)); })  //+ MARGINS.LEFT
           .attr("cy", VIS_HEIGHT/2)
           .attr("width", 10)
           .attr("height", (d) => { return Y_SCALE(d.value)})
