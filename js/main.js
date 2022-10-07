@@ -19,7 +19,7 @@ function build_interactive_plot() {
     
     const X_SCALE = d3.scaleBand() 
                       .domain(data.map(function(d) { return d.category; })) 
-                      .range([0, VIS_WIDTH]);
+                      .range([0, VIS_WIDTH])
                       .padding(0.2);
 
 
