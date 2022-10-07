@@ -1,4 +1,4 @@
-const FRAME_HEIGHT = 200;
+const FRAME_HEIGHT = 500;
 const FRAME_WIDTH = 500; 
 const MARGINS = {left: 50, right: 50, top: 50, bottom: 50};
 
@@ -30,8 +30,8 @@ function build_interactive_plot() {
         .enter()       
         .append("rect")  
           .attr("cx", (d) => { return (X_SCALE(d.x) + MARGINS.left); }) 
-          .attr("cy", FRAME_HEIGHT / 2) 
-          .attr("r", 20)
+          .attr("cy", VIS_HEIGHT / 2)
+          .attr("width", 10)
           .attr("height", (d) => { return Y_SCALE(d.x)})
           .attr("class", "bar");
 
