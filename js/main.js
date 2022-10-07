@@ -32,7 +32,7 @@ function build_interactive_plot() {
         .enter()       
         .append("rect")  
           .attr("x", (d) => { return (X_SCALE(d.Category) + MARGINS.left);})
-          .attr("y", VIS_HEIGHT/2)
+          .attr("y", VIS_HEIGHT -MARGINS.top - Y_SCALE(d.Value))
           .attr("width", X_SCALE.bandwidth())
           .attr("height", (d) => { return Y_SCALE(d.Value)})
           .attr("class", "bar");
