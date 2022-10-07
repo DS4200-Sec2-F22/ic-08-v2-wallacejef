@@ -25,12 +25,12 @@ function build_interactive_plot() {
                       .domain([0, (MAX_Y)]) 
                       .range([0, VIS_HEIGHT]); 
 
-    FRAME.selectAll("bar")  
+    FRAME.selectAll(".bar")  
         .data(data)
         .enter()       
         .append("rect")  
-          .attr("cx", (d) => { return (X_SCALE(d.x) + MARGINS.left); }) 
-          .attr("cy", VIS_HEIGHT / 2)
+          .attr("cx", (d) => { return (X_SCALE(d.x)); })  //+ MARGINS.LEFT
+          .attr("cy", VIS_HEIGHT/2)
           .attr("width", 10)
           .attr("height", (d) => { return Y_SCALE(d.x)})
           .attr("class", "bar");
