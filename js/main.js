@@ -24,7 +24,7 @@ function build_interactive_plot() {
 
 
     const Y_SCALE = d3.scaleLinear() 
-                      .domain([0, (MAX_Y)]) 
+                      .domain([0, (MAX_Y * 1.2)]) 
                       .range([0, VIS_HEIGHT]); 
 
     FRAME.selectAll(".bar")  
