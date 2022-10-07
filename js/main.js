@@ -35,12 +35,13 @@ function build_interactive_plot() {
           .attr("height", (d) => { return Y_SCALE(d.x)})
           .attr("class", "bar");
 
-
+/*
     FRAME.append("g") 
           .attr("transform", "translate(" + MARGINS.left + 
                 "," + (VIS_HEIGHT + MARGINS.top) + ")") 
           .call(d3.axisBottom(X_SCALE).ticks(4)) 
             .attr("font-size", '20px'); 
+            */
 
 
   });
