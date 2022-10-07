@@ -22,7 +22,7 @@ function build_interactive_plot() {
                       .range([0, VIS_WIDTH]); 
 
     const Y_SCALE = d3.scaleLinear() 
-                      .domain([0, (MAX_Y + 10000)]) 
+                      .domain([0, (MAX_Y)]) 
                       .range([0, VIS_HEIGHT]); 
 
     FRAME.selectAll(".bar")  
